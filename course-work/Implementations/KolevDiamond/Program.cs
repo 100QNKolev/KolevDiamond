@@ -12,6 +12,7 @@ namespace KolevDiamond
             builder.Services.AddApplicationDbContext(builder.Configuration);
             builder.Services.AddApplicationIdentity();
             builder.Services.AddApplicationJwt(builder.Configuration);
+            builder.Services.AddApplicationServices();
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();

@@ -20,6 +20,10 @@
     <Content Remove="KolevDiamond.Infrastructure\**" />
     <EmbeddedResource Remove="KolevDiamond.Infrastructure\**" />
     <None Remove="KolevDiamond.Infrastructure\**" />
+    <Compile Remove="KolevDiamond.Core\**" />
+    <Content Remove="KolevDiamond.Core\**" />
+    <EmbeddedResource Remove="KolevDiamond.Core\**" />
+    <None Remove="KolevDiamond.Core\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +33,7 @@
 
   <ItemGroup>
     <ProjectReference Include="KolevDiamond.Infrastructure\KolevDiamond.Infrastructure.csproj" />
+    <ProjectReference Include="KolevDiamond.Core\KolevDiamond.Core.csproj" />
   </ItemGroup>
 
 </Project>

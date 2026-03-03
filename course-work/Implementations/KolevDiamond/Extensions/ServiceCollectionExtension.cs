@@ -1,3 +1,15 @@
+using KolevDiamond.Core.Contracts;
+using KolevDiamond.Core.Contracts.InvestmentCoin;
+using KolevDiamond.Core.Contracts.InvestmentDiamond;
+using KolevDiamond.Core.Contracts.MetalBar;
+using KolevDiamond.Core.Contracts.Necklace;
+using KolevDiamond.Core.Contracts.Ring;
+using KolevDiamond.Core.Services.Admin;
+using KolevDiamond.Core.Services.InvestmentCoin;
+using KolevDiamond.Core.Services.InvestmentDiamond;
+using KolevDiamond.Core.Services.MetalBar;
+using KolevDiamond.Core.Services.Necklace;
+using KolevDiamond.Core.Services.Ring;
 using KolevDiamond.Infrastructure.Data;
 using KolevDiamond.Infrastructure.Data.Common;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -75,6 +87,18 @@ namespace KolevDiamond.Extensions
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
                     };
                 });
+
+            return services;
+        }
+
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        {
+            services.AddScoped<IRingService, RingService>();
+            services.AddScoped<INecklaceService, NecklaceService>();
+            services.AddScoped<IMetalBarService, MetalBarService>();
+            services.AddScoped<IInvestmentCoinService, InvestmentCoinService>();
+            services.AddScoped<IInvestmentDiamondService, InvestmentDiamondService>();
+            services.AddScoped<IAdminJewelryServiceContract, AdminJewelryService>();
 
             return services;
         }
