@@ -1,0 +1,42 @@
+@model KolevDiamond.Web.Models.Auth.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1 style="text-align: center; font-weight: lighter; margin-bottom: 20px;">
+    <span style="background-color: white; padding: 0 10px;">Register</span>
+</h1>
+<hr style="width: 80%; margin: 0 auto; border-top: 1px solid black;">
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-4">
+        <form asp-action="Register" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" type="password" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" type="password" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-dark w-100">Register</button>
+        </form>
+
+        <p class="mt-3 text-center">
+            Already have an account? <a asp-action="Login">Login here</a>
+        </p>
+    </div>
+</div>

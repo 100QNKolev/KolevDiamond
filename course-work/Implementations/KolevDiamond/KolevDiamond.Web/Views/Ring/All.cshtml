@@ -1,0 +1,88 @@
+@model ProductQueryModel
+
+@{
+    ViewData["Title"] = "Rings";
+}
+
+<h1 style="text-align: center; font-weight: lighter; margin-bottom: 20px;">
+    <span style="background-color: white; padding: 0 10px;">Rings</span>
+</h1>
+<hr style="width: 80%; margin: 0 auto; border-top: 1px solid black;">
+
+<section class="recent-products">
+    <partial name="_FilterProductsPartial" model="Model" />
+    <div class="container">
+        @if (Model.Products.Any())
+        {
+            <div class="product-grid">
+                @foreach (var product in Model.Products)
+                {
+                    <partial name="_ProductCard" model="@product" />
+                }
+            </div>
+        }
+        else
+        {
+            <h2>No rings available</h2>
+        }
+    </div>
+</section>
+
+<partial name="_PaginationPartial" model="Model" />
+
+<style>
+    .recent-products {
+        padding: 50px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .recent-products .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .recent-products h2 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+        gap: 20px;
+    }
+
+    .product-card {
+        background-color: #ffffff;
+        border-radius: 2px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 20px;
+    }
+
+    .product-name {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .product-description {
+        font-size: 1rem;
+        color: #666666;
+        margin-bottom: 10px;
+    }
+
+    .product-price {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333333;
+        display: block;
+    }
+</style>

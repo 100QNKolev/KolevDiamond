@@ -1,0 +1,29 @@
+@model ProductQueryModel
+
+<form id="filterForm" method="get">
+    <label asp-for="PriceFilter">Price:</label>
+    <input asp-for="PriceFilter" placeholder="Enter a price">
+    <input type="submit" value="Apply" class="btn btn-primary" />
+</form>
+
+<style>
+    #filterForm {
+        display: flex;
+    }
+
+    #filterForm label,
+    #filterForm input[type="text"],
+    #filterForm input[type="submit"] {
+        height: 30px;
+    }
+
+    #filterForm input[type="submit"] {
+        width: auto;
+        background-color: black;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 0 15px;
+        margin-left: 10px;
+    }
+</style>

@@ -1,0 +1,10 @@
+@model IEnumerable<ProductIndexServiceModel>
+
+@foreach (var product in Model)
+{
+     <div class="product-card" onclick="navigateToDetail(@product.Id)">
+          <img src="@product.ImagePath" alt="@product.Name" class="product-image">
+          <h3 class="product-name">@product.Name</h3>
+          <span class="product-price">@product.Price.ToString("C")</span>
+     </div>
+}

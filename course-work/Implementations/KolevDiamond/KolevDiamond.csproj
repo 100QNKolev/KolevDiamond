@@ -24,6 +24,10 @@
     <Content Remove="KolevDiamond.Core\**" />
     <EmbeddedResource Remove="KolevDiamond.Core\**" />
     <None Remove="KolevDiamond.Core\**" />
+    <Compile Remove="KolevDiamond.Web\**" />
+    <Content Remove="KolevDiamond.Web\**" />
+    <EmbeddedResource Remove="KolevDiamond.Web\**" />
+    <None Remove="KolevDiamond.Web\**" />
   </ItemGroup>
 
   <ItemGroup>

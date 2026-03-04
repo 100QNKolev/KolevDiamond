@@ -99,7 +99,7 @@ namespace KolevDiamond.Core.Services.InvestmentCoin
             }
             catch (Exception ex)
             {
-                _logger.LogError(nameof(Create), ex);
+                _logger.LogError(ex, "Error in {Method}", nameof(Create));
                 throw new ApplicationException("Database failed to save info", ex);
             }
         }
@@ -130,7 +130,7 @@ namespace KolevDiamond.Core.Services.InvestmentCoin
             }
             catch (Exception ex)
             {
-                _logger.LogError(nameof(Update), ex);
+                _logger.LogError(ex, "Error in {Method}", nameof(Update));
                 throw new ApplicationException("Database failed to save info", ex);
             }
         }

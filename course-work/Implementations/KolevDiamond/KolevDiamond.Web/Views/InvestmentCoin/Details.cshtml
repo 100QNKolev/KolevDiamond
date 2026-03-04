@@ -1,0 +1,119 @@
+@model InvestmentCoinDetailsServiceModel
+
+<title>@Model.Name Details</title>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="product-image-container">
+                <img src="@Model.ImagePath" alt="@Model.Name" class="product-image" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="product-details">
+                <h1>@Model.Name</h1>
+                <hr style="width: 100%; margin: 0 auto; border-top: 1px solid black;">
+                <div class="product-info">
+                    <h2>Description:</h2>
+                    <div><strong>Price:</strong> @Model.Price</div>
+                    <div><strong>Metal:</strong> @Model.Metal</div>
+                    <div><strong>Diameter:</strong> @Model.Diameter</div>
+                    <div><strong>Weight:</strong> @Model.Weight</div>
+                    <div><strong>Quality:</strong> @Model.Quality</div>
+                    <div><strong>Purity:</strong> @Model.Purity</div>
+                    <div><strong>Packaging:</strong> @Model.Packaging</div>
+                    <div><strong>Circulation:</strong> @Model.Circulation</div>
+                    <div><strong>Legal Tender:</strong> @Model.LegalTender</div>
+                </div>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <div class="buy-button">
+                        <button type="button" onclick="addToCart()">Buy Now</button>
+                    </div>
+                }
+                else
+                {
+                    <div class="buy-button">
+                        <button type="button" disabled>Log in to Buy</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .product-image-container {
+        width: 550px;
+        height: 550px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .product-details {
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-details h1 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .product-info {
+        margin-bottom: 20px;
+    }
+
+    .product-info h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .buy-button button {
+        padding: 15px 30px;
+        background-color: gray;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .buy-button button:hover {
+        background-color: darkgray;
+    }
+</style>
+
+<script>
+    function addToCart() {
+        var formData = new FormData();
+        formData.append('Id', '@Model.Id');
+        formData.append('ImagePath', '@Model.ImagePath');
+        formData.append('Name', '@Model.Name');
+        formData.append('Price', '@Model.Price');
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '@Url.Action("AddToCart", "Cart")');
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                alert('Item added to cart successfully');
+            } else {
+                alert('Failed to add item to cart');
+            }
+        };
+
+        xhr.send(formData);
+    }
+</script>

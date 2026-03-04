@@ -1,0 +1,22 @@
+@model ProductIndexServiceModel
+
+<a asp-controller="@Model.ProductType" asp-action="Details" asp-route-id="@Model.Id"
+       asp-route-information="@Model.GetInformation()">
+    <div class="product-card">
+        <img src="@Model.ImagePath" alt="@Model.Name" class="product-image">
+        <h3 class="product-name">@Model.Name</h3>
+        <span class="product-price">@Model.Price.ToString("C")</span>
+    </div>
+</a>
+
+<style>
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+</style>

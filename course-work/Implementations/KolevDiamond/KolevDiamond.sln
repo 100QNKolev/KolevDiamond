@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KolevDiamond.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KolevDiamond.Core", "KolevDiamond.Core\KolevDiamond.Core.csproj", "{CE2B660C-9A33-476D-91A1-10541AFE60D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KolevDiamond.Web", "KolevDiamond.Web\KolevDiamond.Web.csproj", "{D0F92955-D463-4EA3-88B7-F16B41A95DA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,18 @@ Global
 		{CE2B660C-9A33-476D-91A1-10541AFE60D2}.Release|x64.Build.0 = Release|Any CPU
 		{CE2B660C-9A33-476D-91A1-10541AFE60D2}.Release|x86.ActiveCfg = Release|Any CPU
 		{CE2B660C-9A33-476D-91A1-10541AFE60D2}.Release|x86.Build.0 = Release|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Debug|x64.Build.0 = Debug|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Debug|x86.Build.0 = Debug|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Release|x64.ActiveCfg = Release|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Release|x64.Build.0 = Release|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Release|x86.ActiveCfg = Release|Any CPU
+		{D0F92955-D463-4EA3-88B7-F16B41A95DA2}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
