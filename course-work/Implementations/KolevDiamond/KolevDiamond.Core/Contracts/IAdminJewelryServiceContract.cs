@@ -4,6 +4,6 @@ namespace KolevDiamond.Core.Contracts
 {
     public interface IAdminJewelryServiceContract
     {
-        Task<IEnumerable<ProductIndexServiceModel>> GetAllJewelry(ProductQueryModel query);
+        Task<ProductQueryModel> GetAllJewelry(ProductQueryModel query);
     }
 }

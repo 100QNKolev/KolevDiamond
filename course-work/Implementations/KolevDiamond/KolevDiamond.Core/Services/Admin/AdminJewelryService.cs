@@ -31,7 +31,7 @@ namespace KolevDiamond.Core.Services.Admin
             _investmentDiamondService = investmentDiamondService;
         }
 
-        public async Task<IEnumerable<ProductIndexServiceModel>> GetAllJewelry(ProductQueryModel query)
+        public async Task<ProductQueryModel> GetAllJewelry(ProductQueryModel query)
         {
             var rings = await _ringService.GetFilteredRingsAsync(
                 query.PriceFilter, query.CurrentPage, JewelryTypeItemPerPage, query.IsForSale);
@@ -48,11 +48,19 @@ namespace KolevDiamond.Core.Services.Admin
             var investmentDiamonds = await _investmentDiamondService.GetFilteredInvestmentDiamondsAsync(
                 query.PriceFilter, query.CurrentPage, JewelryTypeItemPerPage, query.IsForSale);
 
-            return rings.Products
-                .Concat(necklaces.Products)
-                .Concat(metalBars.Products)
-                .Concat(investmentCoins.Products)
-                .Concat(investmentDiamonds.Products);
+            return new ProductQueryModel
+            {
+                Products = rings.Products
+                    .Concat(necklaces.Products)
+                    .Concat(metalBars.Products)
+                    .Concat(investmentCoins.Products)
+                    .Concat(investmentDiamonds.Products),
+                TotalProductCount = rings.TotalProductCount
+                    + necklaces.TotalProductCount
+                    + metalBars.TotalProductCount
+                    + investmentCoins.TotalProductCount
+                    + investmentDiamonds.TotalProductCount
+            };
         }
     }
 }
