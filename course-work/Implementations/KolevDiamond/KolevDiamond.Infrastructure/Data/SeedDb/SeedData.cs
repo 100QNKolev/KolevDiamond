@@ -221,7 +221,7 @@ namespace KolevDiamond.Infrastructure.Data.SeedDb
             {
                 Id = 3,
                 Name = "Emerald Cut Diamond",
-                ImagePath = "https://www.capediamonds.co.za/wp-content/uploads/2020/09/Emerald-Cut-Diamonds-Cape-Diamonds-Cape-Town-South-Africa.jpg",
+                ImagePath = "https://www.aura.diamonds/skin/images/shape_pages/emerald/emerald.jpg",
                 Price = 10000.00m,
                 Carats = 2.0,
                 Colour = DiamondColor.F,
@@ -272,7 +272,7 @@ namespace KolevDiamond.Infrastructure.Data.SeedDb
             {
                 Id = 3,
                 Name = "Silver Maple Leaf",
-                ImagePath = "https://media.tavid.ee/v7/_product_catalog_/1-oz-canadian-maple-leaf-silver-coin/canadian_maple_leaf_1oz_silver_coin_reverse.jpg?height=960&width=960&func=cropfit",
+                ImagePath = "https://img.tavex.bg/v7/_product_catalog_/1-oz-canadian-maple-leaf-silver-coin/canadian_maple_leaf_1oz_silver_coin_reverse.jpg?height=960&width=960&func=cropfit",
                 Price = 500.00m,
                 Metal = MetalVariation.Silver,
                 Weight = 31.1,
