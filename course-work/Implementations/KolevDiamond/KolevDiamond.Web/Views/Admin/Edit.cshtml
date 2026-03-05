@@ -1,0 +1,39 @@
+@model dynamic
+
+<main>
+    <div class="container">
+
+        @if (ViewBag.Category != string.Empty)
+        {
+            switch ((string)ViewBag.Category)
+            {
+                case "Ring":
+                    <partial name="_RingDetailsProductCardPartial" model="@Model" />
+                    break;
+
+                case "Necklace":
+                    <partial name="_NecklaceDetailsProductCardPartial" model="@Model" />
+                    break;
+
+                case "MetalBar":
+                    <partial name="_MetalBarDetailsProductCardPartial" model="@Model" />
+                    break;
+
+                case "InvestmentDiamond":
+                    <partial name="_InvestmentDiamondDetailsProductCardPartial" model="@Model" />
+                    break;
+
+                case "InvestmentCoin":
+                    <partial name="_InvestmentCoinDetailsProductCardPartial" model="@Model" />
+                    break;
+                default:
+                    <p class="text-danger">Invalid item selected.</p>
+                    break;
+            }
+        }
+        else
+        {
+           <p class="text-danger">Invalid item selected.</p>
+        }
+    </div>
+</main>

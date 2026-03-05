@@ -1,0 +1,17 @@
+@model AdminQueryModel
+
+<form asp-controller="Admin" asp-action="Add" method="get">
+    <div class="mb-3">
+        <label asp-for="Category" class="form-label">Select a type:</label>
+        <select class="form-select" asp-for="Category" name="Category">
+            <option value="Ring">Ring</option>
+            <option value="Necklace">Necklace</option>
+            <option value="MetalBar">Metal Bar</option>
+            <option value="InvestmentCoin">Investment Coin</option>
+            <option value="InvestmentDiamond">Investment Diamond</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Select</button>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

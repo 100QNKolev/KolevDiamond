@@ -1,0 +1,35 @@
+@model ProductQueryModel
+
+<form id="filterForm" method="get">
+    <div>
+        <label>Availability:</label>
+        <label><input type="radio" asp-for="IsForSale" value="true"> Available</label>
+        <label><input type="radio" asp-for="IsForSale" value="false"> Not Available</label>
+    </div>
+    <input type="submit" value="Apply" class="btn btn-primary" />
+</form>
+
+<style>
+    #filterForm {
+        display: flex;
+        align-items: center;
+    }
+
+        #filterForm div {
+            margin-right: 20px;
+        }
+
+        #filterForm label {
+            margin-right: 10px;
+        }
+
+        #filterForm input[type="submit"] {
+            width: auto;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 0 15px;
+            margin-left: 10px;
+        }
+</style>

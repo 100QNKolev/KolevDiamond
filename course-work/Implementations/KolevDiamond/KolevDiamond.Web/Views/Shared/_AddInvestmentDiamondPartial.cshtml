@@ -1,0 +1,41 @@
+@model InvestmentDiamondModel
+
+<div id="errorMessages"></div>
+
+<div class="investment-diamond-form">
+    <partial name="_InvestmentDiamondDetailsProductCardPartial" model="new InvestmentDiamondModel()" />
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#myForm').submit(function (event) {
+            event.preventDefault();
+
+            var formData = $(this).serialize();
+
+            $.ajax({
+                url: '@Url.Action("SubmitInvestmentDiamondForm", "Admin")',
+                type: 'POST',
+                data: formData,
+                success: function (response) {
+                    $('#errorMessages').empty();
+
+                    if (response.success === false && response.errors) {
+                        var errorsHtml = '<ul class="text-danger">';
+                        $.each(response.errors, function (index, error) {
+                            errorsHtml += '<li>' + error + '</li>';
+                        });
+                        errorsHtml += '</ul>';
+                        $('#errorMessages').html(errorsHtml);
+                    } else {
+                        alert('Operation completed successfully');
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>

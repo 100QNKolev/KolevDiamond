@@ -1,0 +1,108 @@
+@model NecklaceModel
+
+<form id="myForm" asp-controller="Admin" asp-action="EditNecklace" method="post">
+
+    <div class="form-group" hidden>
+        <input asp-for="Id" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImagePath">Image Path:</label>
+        <input asp-for="ImagePath" class="form-control" />
+        <span asp-validation-for="ImagePath" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Price:</label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Metal">Metal:</label>
+        <select asp-for="Metal" class="form-control">
+            <option value="">Select Metal</option>
+            @foreach (var metal in Enum.GetValues(typeof(MetalVariation)))
+            {
+                <option value="@metal">@metal</option>
+            }
+        </select>
+        <span asp-validation-for="Metal" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Carats">Carats:</label>
+        <input asp-for="Carats" class="form-control" />
+        <span asp-validation-for="Carats" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Colour">Colour:</label>
+        <select asp-for="Colour" class="form-control">
+            <option value="">Select Colour</option>
+            @foreach (var colour in Enum.GetValues(typeof(DiamondColor)))
+            {
+                <option value="@colour">@colour</option>
+            }
+        </select>
+        <span asp-validation-for="Colour" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Clarity">Clarity:</label>
+        <select asp-for="Clarity" class="form-control">
+            <option value="">Select Clarity</option>
+            @foreach (var clarity in Enum.GetValues(typeof(DiamondClarity)))
+            {
+                <option value="@clarity">@clarity</option>
+            }
+        </select>
+        <span asp-validation-for="Clarity" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Cut">Cut:</label>
+        <select asp-for="Cut" class="form-control">
+            <option value="">Select Cut</option>
+            @foreach (var cut in Enum.GetValues(typeof(DiamondCut)))
+            {
+                <option value="@cut">@cut</option>
+            }
+        </select>
+        <span asp-validation-for="Cut" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="Purity">Purity:</label>
+        <input asp-for="Purity" class="form-control" />
+        <span asp-validation-for="Purity" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Length">Length:</label>
+        <input asp-for="Length" class="form-control" />
+        <span asp-validation-for="Length" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsForSale">Is For Sale:</label>
+        <div class="form-check">
+            <input asp-for="IsForSale" class="form-check-input" />
+            <label class="form-check-label" asp-for="IsForSale">Yes</label>
+        </div>
+        <span asp-validation-for="IsForSale" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

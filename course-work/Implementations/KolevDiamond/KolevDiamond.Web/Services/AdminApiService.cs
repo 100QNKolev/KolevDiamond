@@ -1,4 +1,5 @@
 using KolevDiamond.Core.Models;
+using System.Net.Http.Json;
 
 namespace KolevDiamond.Web.Services
 {
@@ -25,6 +26,21 @@ namespace KolevDiamond.Web.Services
         {
             var response = await _http.DeleteAsync($"api/admin/jewelry/{id}?productType={productType}");
             return response.IsSuccessStatusCode;
+        }
+
+        public async Task<T?> GetByIdAsync<T>(string productType, int id)
+        {
+            return await _http.GetFromJsonAsync<T>($"api/admin/jewelry/{productType}/{id}");
+        }
+
+        public async Task<HttpResponseMessage> CreateAsync<T>(string productType, T model)
+        {
+            return await _http.PostAsJsonAsync($"api/admin/jewelry/{productType}", model);
+        }
+
+        public async Task<HttpResponseMessage> UpdateAsync<T>(string productType, int id, T model)
+        {
+            return await _http.PutAsJsonAsync($"api/admin/jewelry/{productType}/{id}", model);
         }
     }
 }
