@@ -14,6 +14,7 @@ namespace KolevDiamond.Core.Models.Necklace
         public string Name { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ValidationMessagesConstants.ImagePathRequired)]
+        [StringLength(ImagePathMaximumLength, MinimumLength = ImagePathMinimumLength, ErrorMessage = ValidationMessagesConstants.ImagePathLength)]
         public string ImagePath { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ValidationMessagesConstants.PriceRequired)]
@@ -21,20 +22,20 @@ namespace KolevDiamond.Core.Models.Necklace
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.MetalRequired)]
-        public MetalVariation Metal { get; set; }
+        public MetalVariation? Metal { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.CaratsRequired)]
         [Range(0, double.MaxValue, ErrorMessage = ValidationMessagesConstants.CaratsRange)]
         public double Carats { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.ColourRequired)]
-        public DiamondColor Colour { get; set; }
+        public DiamondColor? Colour { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.ClarityRequired)]
-        public DiamondClarity Clarity { get; set; }
+        public DiamondClarity? Clarity { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.CutRequired)]
-        public DiamondCut Cut { get; set; }
+        public DiamondCut? Cut { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.PurityRequired)]
         [StringLength(NecklacePurityMaximumLength, MinimumLength = NecklacePurityMinumumLength, ErrorMessage = ValidationMessagesConstants.PurityLength)]

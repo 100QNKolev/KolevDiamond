@@ -14,6 +14,7 @@ namespace KolevDiamond.Core.Models.InvestmentDiamond
         public string Name { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ValidationMessagesConstants.ImagePathRequired)]
+        [StringLength(ImagePathMaximumLength, MinimumLength = ImagePathMinimumLength, ErrorMessage = ValidationMessagesConstants.ImagePathLength)]
         public string ImagePath { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ValidationMessagesConstants.PriceRequired)]
@@ -25,13 +26,13 @@ namespace KolevDiamond.Core.Models.InvestmentDiamond
         public double Carats { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.ColourRequired)]
-        public DiamondColor Colour { get; set; }
+        public DiamondColor? Colour { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.ClarityRequired)]
-        public DiamondClarity Clarity { get; set; }
+        public DiamondClarity? Clarity { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.CutRequired)]
-        public DiamondCut Cut { get; set; }
+        public DiamondCut? Cut { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.CertifyingLaboratoryRequired)]
         [StringLength(InvestmentDiamondCertifyingLaboratoryMaximumLength, MinimumLength = InvestmentDiamondCertifyingLaboratoryMinumumLength, ErrorMessage = ValidationMessagesConstants.CertifyingLaboratoryLength)]

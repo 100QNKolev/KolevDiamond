@@ -81,10 +81,10 @@ namespace KolevDiamond.Core.Services.InvestmentCoin
                 Name = model.Name,
                 ImagePath = model.ImagePath,
                 Price = model.Price,
-                Metal = model.Metal,
+                Metal = model.Metal.Value,
                 Purity = model.Purity,
                 Weight = model.Weight,
-                Quality = model.Quality,
+                Quality = model.Quality.Value,
                 Circulation = model.Circulation,
                 Diameter = model.Diameter,
                 LegalTender = model.LegalTender,
@@ -113,10 +113,10 @@ namespace KolevDiamond.Core.Services.InvestmentCoin
             entity.Name = model.Name;
             entity.ImagePath = model.ImagePath;
             entity.Price = model.Price;
-            entity.Metal = model.Metal;
+            entity.Metal = model.Metal.Value;
             entity.Purity = model.Purity;
             entity.Weight = model.Weight;
-            entity.Quality = model.Quality;
+            entity.Quality = model.Quality.Value;
             entity.Circulation = model.Circulation;
             entity.Diameter = model.Diameter;
             entity.LegalTender = model.LegalTender;

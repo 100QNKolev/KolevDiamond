@@ -14,6 +14,7 @@ namespace KolevDiamond.Core.Models.InvestmentCoin
         public string Name { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ValidationMessagesConstants.ImagePathRequired)]
+        [StringLength(ImagePathMaximumLength, MinimumLength = ImagePathMinimumLength, ErrorMessage = ValidationMessagesConstants.ImagePathLength)]
         public string ImagePath { get; set; } = string.Empty;
 
         [Required(ErrorMessage = ValidationMessagesConstants.PriceRequired)]
@@ -21,7 +22,7 @@ namespace KolevDiamond.Core.Models.InvestmentCoin
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.MetalRequired)]
-        public MetalVariation Metal { get; set; }
+        public MetalVariation? Metal { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.WeightRequired)]
         [Range(0, double.MaxValue, ErrorMessage = ValidationMessagesConstants.WeightRange)]
@@ -32,7 +33,7 @@ namespace KolevDiamond.Core.Models.InvestmentCoin
         public double Purity { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.QualityRequired)]
-        public GoldQuality Quality { get; set; }
+        public GoldQuality? Quality { get; set; }
 
         [Required(ErrorMessage = ValidationMessagesConstants.CirculationRequired)]
         public int Circulation { get; set; }

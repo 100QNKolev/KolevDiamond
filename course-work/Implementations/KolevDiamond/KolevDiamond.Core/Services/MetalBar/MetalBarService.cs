@@ -81,7 +81,7 @@ namespace KolevDiamond.Core.Services.MetalBar
                 Name = model.Name,
                 ImagePath = model.ImagePath,
                 Price = model.Price,
-                Metal = model.Metal,
+                Metal = model.Metal.Value,
                 Weight = model.Weight,
                 Dimensions = model.Dimensions,
                 Purity = model.Purity,
@@ -108,7 +108,7 @@ namespace KolevDiamond.Core.Services.MetalBar
             entity.Name = model.Name;
             entity.ImagePath = model.ImagePath;
             entity.Price = model.Price;
-            entity.Metal = model.Metal;
+            entity.Metal = model.Metal.Value;
             entity.Weight = model.Weight;
             entity.Dimensions = model.Dimensions;
             entity.Purity = model.Purity;

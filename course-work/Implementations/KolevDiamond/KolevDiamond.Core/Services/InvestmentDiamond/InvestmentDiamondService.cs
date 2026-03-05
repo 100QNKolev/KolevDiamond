@@ -82,9 +82,9 @@ namespace KolevDiamond.Core.Services.InvestmentDiamond
                 ImagePath = model.ImagePath,
                 Price = model.Price,
                 Carats = model.Carats,
-                Colour = model.Colour,
-                Clarity = model.Clarity,
-                Cut = model.Cut,
+                Colour = model.Colour.Value,
+                Clarity = model.Clarity.Value,
+                Cut = model.Cut.Value,
                 CertifyingLaboratory = model.CertifyingLaboratory,
                 Proportions = model.Proportions,
                 IsForSale = model.IsForSale
@@ -111,9 +111,9 @@ namespace KolevDiamond.Core.Services.InvestmentDiamond
             entity.ImagePath = model.ImagePath;
             entity.Price = model.Price;
             entity.Carats = model.Carats;
-            entity.Colour = model.Colour;
-            entity.Clarity = model.Clarity;
-            entity.Cut = model.Cut;
+            entity.Colour = model.Colour.Value;
+            entity.Clarity = model.Clarity.Value;
+            entity.Cut = model.Cut.Value;
             entity.CertifyingLaboratory = model.CertifyingLaboratory;
             entity.Proportions = model.Proportions;
             entity.IsForSale = model.IsForSale;

@@ -5,6 +5,7 @@ namespace KolevDiamond.Core.Constants
         public const string NameRequired = "Name is required";
         public const string NameLength = "Name must be between {2} and {1} characters";
         public const string ImagePathRequired = "Image path is required";
+        public const string ImagePathLength = "Image path must be between {2} and {1} characters";
         public const string PriceRequired = "Price is required";
         public const string PriceRange = "Price must be greater than or equal to 0";
         public const string CaratsRequired = "Carats is required";

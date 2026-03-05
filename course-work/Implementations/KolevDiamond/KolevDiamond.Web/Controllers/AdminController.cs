@@ -100,91 +100,217 @@ namespace KolevDiamond.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> SubmitRingForm([FromForm] RingModel model)
         {
-            var response = await _adminService.CreateAsync("ring", model);
-            var result = await response.Content.ReadFromJsonAsync<dynamic>();
-            return Json(result);
+            return await ProcessForm(model, "ring");
         }
 
         [HttpPost]
         public async Task<IActionResult> SubmitNecklaceForm([FromForm] NecklaceModel model)
         {
-            var response = await _adminService.CreateAsync("necklace", model);
-            var result = await response.Content.ReadFromJsonAsync<dynamic>();
-            return Json(result);
+            return await ProcessForm(model, "necklace");
         }
 
         [HttpPost]
         public async Task<IActionResult> SubmitMetalBarForm([FromForm] MetalBarModel model)
         {
-            var response = await _adminService.CreateAsync("metalbar", model);
-            var result = await response.Content.ReadFromJsonAsync<dynamic>();
-            return Json(result);
+            return await ProcessForm(model, "metalbar");
         }
 
         [HttpPost]
         public async Task<IActionResult> SubmitInvestmentDiamondForm([FromForm] InvestmentDiamondModel model)
         {
-            var response = await _adminService.CreateAsync("investmentdiamond", model);
-            var result = await response.Content.ReadFromJsonAsync<dynamic>();
-            return Json(result);
+            return await ProcessForm(model, "investmentdiamond");
         }
 
         [HttpPost]
         public async Task<IActionResult> SubmitInvestmentCoinForm([FromForm] InvestmentCoinModel model)
         {
-            var response = await _adminService.CreateAsync("investmentcoin", model);
-            var result = await response.Content.ReadFromJsonAsync<dynamic>();
-            return Json(result);
+            return await ProcessForm(model, "investmentcoin");
         }
 
         [HttpPost]
         public async Task<IActionResult> EditRing(RingModel model)
         {
-            if (model.Id != null)
+            if (ModelState.IsValid)
             {
-                await _adminService.UpdateAsync("ring", (int)model.Id, model);
+                var modelErrors = GetModelErrors(model);
+                if (modelErrors.Count > 0)
+                {
+                    ViewBag.ModelErrors = modelErrors;
+                    ViewBag.Category = "Ring";
+                    return View("Edit", model);
+                }
+
+                if (model.Id != null)
+                {
+                    await _adminService.UpdateAsync("ring", (int)model.Id, model);
+                    return RedirectToAction(nameof(Jewelry));
+                }
+                else
+                {
+                    return BadRequest("Invalid model");
+                }
             }
-            return RedirectToAction(nameof(Jewelry));
+            else
+            {
+                ViewBag.Category = "Ring";
+                return View("Edit", model);
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> EditNecklace(NecklaceModel model)
         {
-            if (model.Id != null)
+            if (ModelState.IsValid)
             {
-                await _adminService.UpdateAsync("necklace", (int)model.Id, model);
+                var modelErrors = GetModelErrors(model);
+                if (modelErrors.Count > 0)
+                {
+                    ViewBag.ModelErrors = modelErrors;
+                    ViewBag.Category = "Necklace";
+                    return View("Edit", model);
+                }
+
+                if (model.Id != null)
+                {
+                    await _adminService.UpdateAsync("necklace", (int)model.Id, model);
+                    return RedirectToAction(nameof(Jewelry));
+                }
+                else
+                {
+                    return BadRequest("Invalid model");
+                }
             }
-            return RedirectToAction(nameof(Jewelry));
+            else
+            {
+                ViewBag.Category = "Necklace";
+                return View("Edit", model);
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> EditMetalBar(MetalBarModel model)
         {
-            if (model.Id != null)
+            if (ModelState.IsValid)
             {
-                await _adminService.UpdateAsync("metalbar", (int)model.Id, model);
+                var modelErrors = GetModelErrors(model);
+                if (modelErrors.Count > 0)
+                {
+                    ViewBag.ModelErrors = modelErrors;
+                    ViewBag.Category = "MetalBar";
+                    return View("Edit", model);
+                }
+
+                if (model.Id != null)
+                {
+                    await _adminService.UpdateAsync("metalbar", (int)model.Id, model);
+                    return RedirectToAction(nameof(Jewelry));
+                }
+                else
+                {
+                    return BadRequest("Invalid model");
+                }
             }
-            return RedirectToAction(nameof(Jewelry));
+            else
+            {
+                ViewBag.Category = "MetalBar";
+                return View("Edit", model);
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> EditInvestmentDiamond(InvestmentDiamondModel model)
         {
-            if (model.Id != null)
+            if (ModelState.IsValid)
             {
-                await _adminService.UpdateAsync("investmentdiamond", (int)model.Id, model);
+                var modelErrors = GetModelErrors(model);
+                if (modelErrors.Count > 0)
+                {
+                    ViewBag.ModelErrors = modelErrors;
+                    ViewBag.Category = "InvestmentDiamond";
+                    return View("Edit", model);
+                }
+
+                if (model.Id != null)
+                {
+                    await _adminService.UpdateAsync("investmentdiamond", (int)model.Id, model);
+                    return RedirectToAction(nameof(Jewelry));
+                }
+                else
+                {
+                    return BadRequest("Invalid model");
+                }
             }
-            return RedirectToAction(nameof(Jewelry));
+            else
+            {
+                ViewBag.Category = "InvestmentDiamond";
+                return View("Edit", model);
+            }
         }
 
         [HttpPost]
         public async Task<IActionResult> EditInvestmentCoin(InvestmentCoinModel model)
         {
-            if (model.Id != null)
+            if (ModelState.IsValid)
             {
-                await _adminService.UpdateAsync("investmentcoin", (int)model.Id, model);
+                var modelErrors = GetModelErrors(model);
+                if (modelErrors.Count > 0)
+                {
+                    ViewBag.ModelErrors = modelErrors;
+                    ViewBag.Category = "InvestmentCoin";
+                    return View("Edit", model);
+                }
+
+                if (model.Id != null)
+                {
+                    await _adminService.UpdateAsync("investmentcoin", (int)model.Id, model);
+                    return RedirectToAction(nameof(Jewelry));
+                }
+                else
+                {
+                    return BadRequest("Invalid model");
+                }
             }
-            return RedirectToAction(nameof(Jewelry));
+            else
+            {
+                ViewBag.Category = "InvestmentCoin";
+                return View("Edit", model);
+            }
+        }
+
+        [NonAction]
+        private async Task<IActionResult> ProcessForm<T>(T model, string productType)
+        {
+            var modelErrors = GetModelErrors(model);
+            if (modelErrors.Any())
+            {
+                return Json(new { success = false, errors = modelErrors });
+            }
+
+            try
+            {
+                await _adminService.CreateAsync(productType, model);
+                return Json(new { success = true, message = "Operation completed successfully" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = "An error occurred while processing the request: " + ex.Message });
+            }
+        }
+
+        [NonAction]
+        private List<string> GetModelErrors<T>(T model)
+        {
+            TryValidateModel(model);
+
+            if (!ModelState.IsValid)
+            {
+                return ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .ToList();
+            }
+
+            return new List<string>();
         }
     }
 }

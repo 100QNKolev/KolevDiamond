@@ -52,5 +52,9 @@ namespace KolevDiamond.Infrastructure.Constants
 
         public const int RingPurityMaximumLength = 25;
         public const int RingPurityMinumumLength = 2;
+
+        // Constants for Image Path
+        public const int ImagePathMaximumLength = 2048;
+        public const int ImagePathMinimumLength = 10;
     }
 }
